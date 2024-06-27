@@ -39,3 +39,5 @@ Agora quando usamos a ponte retificadora temos que independente da direção da 
 Eu escolhi uma ponte retifacdora ja pré preparada com o nome Ponte Retificadora 2W10 pois era a mais conveniente de se colocar no circuito.
 
 ## Capacitor 
+
+O capacitor é o componente responsavel por
