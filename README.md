@@ -28,11 +28,11 @@ A ponte retificadora completa é uma configuração de 4 diodos que utilizamos p
 
 O circuito sem a ponte funcionaria polarizado de duas formas por um periodo a tensão vai na direção "positiva" e outra na "negativa".
 
-![Alt text](./imgs/CorrenteAC.gif)
+<img src="./imgs/CorrenteAC.gif">
 
 Agora quando usamos a ponte retificadora temos que independente da direção da corrente alternada ela sempre caminhara pelo caminho que desejamos. Pois quando positivo, a tensão vem da parte de cima, o diodo da esquerda inibe que ele va pela esquerda e direciona para a direita, quando negativo, a tensão vem pela parte de baixo sobre a mesma lógica.
 
-![Alt text](./imgs/gifDC.gif)
+<img src="./imgs/gifDC.gif">
 
 É notavel que na ponte retificadora completa existe uma queda de tensão pois um diodo de sicilio dissipa uma tensão de aproximadamente 0.7V.
 
