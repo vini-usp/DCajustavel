@@ -36,4 +36,6 @@ Agora quando usamos a ponte retificadora temos que independente da direção da 
 
 É notavel que na ponte retificadora completa existe uma queda de tensão pois um diodo de sicilio dissipa uma tensão de aproximadamente 0.7V.
 
+Eu escolhi uma ponte retifacdora ja pré preparada com o nome Ponte Retificadora 2W10 pois era a mais conveniente de se colocar no circuito.
+
 ## Capacitor 
