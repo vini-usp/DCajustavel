@@ -4,8 +4,7 @@ A fonte de tensão é um circuito que transforma a corrente alternada para conti
 
 ## Transformador
 
-O transformador é a parte inicial do circuito. Ele, neste circuito, é resposavel por diminuir a 
-tensão que recebemos da tomada para um valor que possamos trabalhar com.
+O transformador é a parte inicial do circuito. Ele, neste circuito, é resposavel por diminuir a tensão que recebemos da tomada para um valor que possamos trabalhar com.
 Sabendo que, em teoria, a tensão RMS (root mean square) no Brasil é 127V temos:
 
 $RMS = \frac{Vpico}{\sqrt{2}}$
@@ -14,14 +13,27 @@ $127V = \frac{Vpico}{\sqrt{2}}$
 
 $Vpico = 127 \cdot \sqrt{2} \approx 179.605$
 
-Durante as aulas medimos a tensão dos transformadores, obtendo para o utilizado uma tensão de 
-aproximadamente 24.2V.
+Durante as aulas medimos a tensão dos transformadores, obtendo para o utilizado uma tensão de aproximadamente 24.2V.
 Sabendo que a proporção de espiras é dado por:
 
 $Prop = \frac{VpicoAntes}{VpicoDepois}$
 
-$Prop = \frac{179.6}{24.2} \approx 7.4$
+$Prop = \frac{179.6}{24.2} \approx 7.42$
 
 Dessa forma obtendo as especificações do transformador utilizado.
 
-## Ponte retificadora
+## Ponte retificadora completa
+
+A ponte retificadora completa é uma configuração de 4 diodos que utilizamos para direcionar a tensão vinda do transformador para um unica direção do circuito.
+
+O circuito sem a ponte funcionaria polarizado de duas formas por um periodo a tensão vai na direção "positiva" e outra na "negativa".
+
+![Alt text](./imgs/CorrenteAC.gif)
+
+Agora quando usamos a ponte retificadora temos que independente da direção da corrente alternada ela sempre caminhara pelo caminho que desejamos. Pois quando positivo, a tensão vem da parte de cima, o diodo da esquerda inibe que ele va pela esquerda e direciona para a direita, quando negativo, a tensão vem pela parte de baixo sobre a mesma lógica.
+
+![Alt text](./imgs/gifDC.gif)
+
+É notavel que na ponte retificadora completa existe uma queda de tensão pois um diodo de sicilio dissipa uma tensão de aproximadamente 0.7V.
+
+## Capacitor 
