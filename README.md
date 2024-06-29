@@ -46,7 +46,7 @@ O capacitor é o componente responsavel por
 
 ## Circuito no Falstad
 
-<a href="https://tinyurl.com/2pcby8al"><img src="./imgs/CircuitoFalstad.jpg">
+<a href="https://tinyurl.com/2pcby8al"><img src="./imgs/CircuitoFalstad2.jpg">
 
 Link para o circuito: https://tinyurl.com/2pcby8al
 
