@@ -2,7 +2,9 @@
 
 A fonte de tensão é um circuito que transforma a corrente alternada para continua com os parametros de uma corrente efetiva de 100mA e voltagem variando de 3V até 12V.
 
-## Transformador
+## Componentes
+
+### Transformador
 
 O transformador é a parte inicial do circuito. Ele, neste circuito, é resposavel por diminuir a tensão que recebemos da tomada para um valor que possamos trabalhar com.
 Sabendo que, em teoria, a tensão RMS (root mean square) no Brasil é 127V temos:
@@ -22,7 +24,7 @@ $Prop = \frac{179.6}{24.2} \approx 7.42$
 
 Dessa forma obtendo as especificações do transformador utilizado.
 
-## Ponte retificadora completa
+### Ponte retificadora completa
 
 A ponte retificadora completa é uma configuração de 4 diodos que utilizamos para direcionar a tensão vinda do transformador para um unica direção do circuito.
 
@@ -38,6 +40,37 @@ Agora quando usamos a ponte retificadora temos que independente da direção da 
 
 Eu escolhi uma ponte retifacdora ja pré preparada com o nome Ponte Retificadora 2W10 pois era a mais conveniente de se colocar no circuito.
 
-## Capacitor 
+### Capacitor 
 
 O capacitor é o componente responsavel por
+
+## Circuito no Falstad
+
+<a href="https://tinyurl.com/2pcby8al"><img src="./imgs/CircuitoFalstad.jpg">
+
+Link para o circuito: https://tinyurl.com/2pcby8al
+
+## Circuito Montado
+
+Uma imagem do circuito de uma visão por cima:
+
+<img src="./imgs/CircuitoCima.jpg">
+
+Imagens do circuito com uma resistencia de 120Ohms como teste:
+
+<img src="./imgs/CicuitoPotBaixo.jpg">
+
+<img src="./imgs/CircuitoPotCima.jpg">
+
+## Esquemático da PCB no EAGLE
+
+## PCB no EAGLE
+
+## Feito por:
+
+Vinícius Souza Freitas - 15491959
+
+## Agradecimentos
+
+Profesor Simões, que encotrou o problema quase instantaneamente enquanto eu e o kaita ficamos umas 3 horas tentando encontra-lo.
+Jonas Kaita, um dos maiores cozinheiros.
