@@ -44,6 +44,25 @@ Eu escolhi uma ponte retifacdora ja pré preparada com o nome Ponte Retificadora
 
 O capacitor é o componente responsavel por
 
+## Custo dos componentes
+
+| Componente               | Preço   |
+|--------------------------|---------|
+| Ponte Retificadora 2W10  | R$ 1.10 |
+| Capacitor de 470uF/25V   | R$ 0.65 |
+| 2*Resistor de 2K2        | R$ 0.16 |
+| LED verde                | R$ 0.50 |
+| 2*Resitor de 510R (1/4)W | R$ 0.14 | 
+| Diodo Zener 13V (1/2)W   | R$ 0.70 |
+| Potenciômetro 10k linear | R$ 7.00 |
+| Resistor de 1k (1/4)W    | R$ 0.07 |
+| Resitor de 120R 5W       | R$ 1.40 |
+| BC548B                   | R$ 0.30 |
+
+Total = R$ 14.16
+
+Obs: Preço considerando o valor unitario de cada um dos componentes
+
 ## Circuito no Falstad
 
 <a href="https://tinyurl.com/2pcby8al"><img src="./imgs/CircuitoFalstad2.jpg">
