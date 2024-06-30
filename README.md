@@ -2,9 +2,9 @@
 
 A fonte de tensão é um circuito que transforma a corrente alternada para continua com os parametros de uma corrente efetiva de 100mA e voltagem variando de 3V até 12V.
 
-## Componentes
+# Componentes
 
-### Transformador
+## Transformador
 
 O transformador é a parte inicial do circuito. Ele, neste circuito, é resposavel por diminuir a tensão que recebemos da tomada para um valor que possamos trabalhar com.
 Sabendo que, em teoria, a tensão RMS (root mean square) no Brasil é 127V temos:
@@ -24,7 +24,7 @@ $Prop = \frac{179.6}{24.2} \approx 7.42$
 
 Dessa forma obtendo as especificações do transformador utilizado.
 
-### Ponte retificadora completa
+## Ponte retificadora completa
 
 A ponte retificadora completa é uma configuração de 4 diodos que utilizamos para direcionar a tensão vinda do transformador para um unica direção do circuito.
 
@@ -36,13 +36,33 @@ Agora quando usamos a ponte retificadora temos que independente da direção da 
 
 <img src="./imgs/lowgifDC.gif">
 
-É notavel que na ponte retificadora completa existe uma queda de tensão pois um diodo de sicilio dissipa uma tensão de aproximadamente 0.7V.
+É notavel que na ponte retificadora completa existe uma queda de tensão pois um diodo de silicio dissipa uma tensão de aproximadamente 0.7V.
 
 Eu escolhi uma ponte retifacdora ja pré preparada com o nome Ponte Retificadora 2W10 pois era a mais conveniente de se colocar no circuito.
 
-### Capacitor 
+## Capacitor 
 
-O capacitor é o componente responsavel por
+O capacitor é o componente responsavel por alisar os picos das curvas da tensão que chega ao circuito. Ele armazena uma quantidade de carga quando o circuito é ligado e quando atinge carga maxima é descarregado em uma velocidade alta.
+
+Esse comportamento resulta que a forma das ondas de tensão no circuito se tornão cada vez mais lineares aproximando, quanto maior for o valor do capacitor, uma linha horizontal.
+
+<img src="./imgs/GifCap.gif">
+
+O capacitor foi calculado com a seguinte formula:
+
+$C = \frac{Icarga}{2 \cdot ƒ \cdot Vripple}$
+
+Em que C é a capacitâcia, $Icarga$ é a corrente maxima que tera na carga, ƒ é a frequencia da onda e $Vripple$ o maximo de tensão que o circuito ainda pode alternar periodicamente.
+
+Sabendo que $Icarga$ é 100mA ƒ é 60Hz e $Vripple$ eu escolhi 2V temos:
+
+$C = \frac{100 \cdot 10^{-3}}{2 \cdot 60 \cdot 2} = 416uF$
+
+Como esse capacitor não é comercialmente vendido eu optei por um maior de 470uF para calcular o ripple que esse novo capacitor ira gerar temos a seguinte formula:
+
+$Vripple = \frac{Icarga}{2 \cdot ƒ \cdot 470 \cdot 10^{-6}} \approx 1.77$
+
+A razão pela qual eu escolhi uma capcitância pequena, que leva a um ripple maior, é que o custo de um capacito maior é significamente superior ao de um menor que ja atenderia as especificções da fonte.
 
 ## Custo dos componentes
 
@@ -65,9 +85,9 @@ Obs: Preço considerando o valor unitario de cada um dos componentes
 
 ## Circuito no Falstad
 
-<a href="https://tinyurl.com/2pcby8al"><img src="./imgs/CircuitoFalstad2.jpg">
+<a href="https://tinyurl.com/2fhaega6"><img src="./imgs/CircuitoFalstad2.jpg">
 
-Link para o circuito: https://tinyurl.com/2pcby8al
+Link para o circuito: https://tinyurl.com/2fhaega6
 
 ## Circuito Montado
 
