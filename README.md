@@ -15,12 +15,12 @@ $127V = \frac{Vpico}{\sqrt{2}}$
 
 $Vpico = 127 \cdot \sqrt{2} \approx 179.605$
 
-Durante as aulas medimos a tensão dos transformadores, obtendo para o utilizado uma tensão de aproximadamente 24.2V.
+Durante as aulas medimos a tensão dos transformadores, obtendo para o utilizado uma tensão de aproximadamente 24.2V após ser retificado, o que siginifica que passou por um diodo e, portanto, teve um queda de tensão de 0.7V logo o valor após o transformador é 24.9V.
 Sabendo que a proporção de espiras é dado por:
 
 $Prop = \frac{VpicoAntes}{VpicoDepois}$
 
-$Prop = \frac{179.6}{24.2} \approx 7.42$
+$Prop = \frac{179.6}{24.9} \approx 7.21$
 
 Dessa forma obtendo as especificações do transformador utilizado.
 
@@ -52,17 +52,25 @@ O capacitor foi calculado com a seguinte formula:
 
 $C = \frac{Icarga}{2 \cdot ƒ \cdot Vripple}$
 
-Em que C é a capacitâcia, $Icarga$ é a corrente maxima que tera na carga, ƒ é a frequencia da onda e $Vripple$ o maximo de tensão que o circuito ainda pode alternar periodicamente.
+Em que C é a capacitâcia, $Imax$ é a corrente maxima que tera na carga, ƒ é a frequencia da onda e $Vripple$ o maximo de tensão que o circuito ainda pode alternar periodicamente.
 
-Sabendo que $Icarga$ é 100mA ƒ é 60Hz e $Vripple$ eu escolhi 2V temos:
+Calculando $Imax$
 
-$C = \frac{100 \cdot 10^{-3}}{2 \cdot 60 \cdot 2} = 416uF$
+$Iled = \frac{24.2-0.7}{2200} \approx 11mA$
 
-Como esse capacitor não é comercialmente vendido eu optei por um maior de 470uF para calcular o ripple que esse novo capacitor ira gerar temos a seguinte formula:
+$Izener = \frac{24.2-13}{255} \approx 44mA$
 
-$Vripple = \frac{Icarga}{2 \cdot ƒ \cdot 470 \cdot 10^{-6}} \approx 1.77V$
+O $Icarga$ pode ser aproximado como $100mA$
 
-A razão pela qual eu escolhi uma capcitância pequena, que leva a um ripple maior, é que o custo de um capacitor maior é significamente superior ao de um menor que ja atenderia as especificações da fonte.
+$Itotal = 11mA + 44mA + 100mA = 155mA$
+
+Sabendo que $Imax$ é 155mA ƒ é 120Hz e $Vripple$ sera no minimo 10% da tensão que tera no capacitor que é aproximadamente 2.42V. Eu escolhi 2V porque é um pouco a baixo de 10% e simplifica as contas, com isso temos:
+
+$C = \frac{100 \cdot 10^{-3}}{2 \cdot 120 \cdot 2} = 322uF$
+
+Como esse capacitor não é comercialmente e eu também queria um ripple minimo na minha fonte eu optei por um de 470uF que possui valor um pouco maior e faz com que o ripple seja menor que 10%, além de funcionar como uma rede de segurança para que tenha certeza que a fonte atinja o maximo constantemente.
+
+$Vripple = \frac{Icarga}{2 \cdot ƒ \cdot 470 \cdot 10^{-6}} \approx 1.37V$
 
 ## Diodo Zener
 
@@ -92,7 +100,7 @@ $Imax = \frac{0.5}{13} \approx 38.4mA$
 
 Mesmo no circuito tendo um ripple de $\approx 1.77V$ ainda é seguro utilizar o $Vs maximo$ para o minimo pois sera o suficiente também para o $Vs minimo$
 
-$Rmin = \frac{23 - 13}{38.4 \cdot 10^{-3}}\approx 260\Omega$
+$Rmin = \frac{24.2 - 13}{38.4 \cdot 10^{-3}}\approx 291\Omega$
 
 Para descobrir o valor maximo da resistencia em série podemos usar do fato que o diodo zenner precisa de corrente para que dissipe corrente logo podemos encontrar a seguinte relação:
 
@@ -100,19 +108,21 @@ $Rs = \frac{Vs - Vz}{Iz} => Iz = \frac{Vs-Vz}{Rs} => Iz(Rs) = \frac{Vs-Vz}{Rs} $
 
 $\lim_{Rs \to \infty} Iz(Rs) = 0$
 
-Para os valores escolhidos e tomando $\epsilon$ como 0.0025 temos:
+Para os valores escolhidos, sabendo que o minimo do ripple (24.2 - 1.77) sera o primeiro a chegar na resistência maxima temos e tomando $\epsilon$ como 0.0025 temos:
 
-$\lim_{Rs \to \infty} \frac{10}{Rs} = 0 => \frac{10}{\epsilon} = \delta$
+$\lim_{Rs \to \infty} \frac{22.43-13}{Rs} = 0 => \frac{9.43}{\epsilon} = \delta$
 
-$\delta = 4000$
+$\delta = 3772$
 
-Temos que para essa aproximação o valor maximo da resistência em série é 4000 $\Omega$
+Temos que para essa aproximação o valor maximo da resistência em série é 3772 $\Omega$
+
+Utilizar uma resistencia proxima da máxmia é extremamente útil considerando que o zener ira dissipar um quantidade menor de tensão entretanto, no meu projeto, usando resistências maiores como a calculada estava reduzindo a tensão maxima do circuito então eu tive que colocar uma resistência extremamente próxima da minima, além disso, devido a uma certa dissipação pela protoboard usar 255 Ohms como resistência do zener ainda não queima ele.
 
 ## Transistor e potenciometro
 
 Esta parte do circuito é uma substituição do LM317 por ser mais simples de usar.
 
-O potenciometro funciona como regulador de maximo e minimo da tensão que chegara até carga selecionada, o escolhido foi um de 10K linear com uma resistência de 3.2K.
+O potenciometro funciona como regulador de maximo e minimo da tensão que chegara até carga selecionada, o escolhido foi um de 10K linear com uma resistência de 3.2K calculada com base em testes.
 
 O transistor NPN atua no circuito como um aplificador que isola a carga do circuito, fazendo que uma mudança na carga não altere o resto do circuito. É notavel que é necessario conectar um resistor de 100 Ohms de no mínimo 2W com o coletor do transistor para dividir a tensão que o transistor dissipa, caso contrario ele ira queimar. *No meu circuito escolhi um 120 Ohms e 5W pois era o mais próximo do valor sendo vendido*.
 
@@ -137,9 +147,9 @@ Obs: Preço considerando o valor unitario de cada um dos componentes
 
 ## Circuito no Falstad
 
-<a href="https://tinyurl.com/2fhaega6"><img src="./imgs/CircuitoFalstad2.jpg">
+<a href="https://tinyurl.com/2nrstvew"><img src="./imgs/CircuitoFalstad2.jpg">
 
-Link para o circuito: https://tinyurl.com/2fhaega6
+Link para o circuito: https://tinyurl.com/2nrstvew
 
 ## Circuito Montado
 
@@ -155,7 +165,11 @@ Imagens do circuito com uma resistencia de 120Ohms como teste:
 
 ## Esquemático da PCB no EAGLE
 
+<img src="./imgs/ShematicnoEAGLE.jpg">
+
 ## PCB no EAGLE
+
+<img src="./imgs/PCBnoEAGLE.jpg">
 
 ## Feito por:
 
