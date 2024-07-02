@@ -36,7 +36,7 @@ Agora quando usamos a ponte retificadora temos que independente da direção da 
 
 <img src="./imgs/lowgifDC.gif">
 
-É notavel que na ponte retificadora completa existe uma queda de tensão pois um diodo de silicio dissipa uma tensão de aproximadamente 0.7V.
+É notavel que na ponte retificadora completa existe uma queda de tensão pois um diodo de silicio dissipa uma tensão de aproximadamente 0.7V portanto no circuito teremos cerca de 23V.
 
 Eu escolhi uma ponte retifacdora ja pré preparada com o nome Ponte Retificadora 2W10 pois era a mais conveniente de se colocar no circuito.
 
@@ -92,7 +92,7 @@ $Imax = \frac{0.5}{13} \approx 38.4mA$
 
 Mesmo no circuito tendo um ripple de $\approx 1.77V$ ainda é seguro utilizar o $Vs maximo$ para o minimo pois sera o suficiente também para o $Vs minimo$
 
-$Rmin = \frac{23 - 13}{38.4 \cdot 10^{-3} \approx 260\Omega}$
+$Rmin = \frac{23 - 13}{38.4 \cdot 10^{-3}}\approx 260\Omega$
 
 Para descobrir o valor maximo da resistencia em série podemos usar do fato que o diodo zenner precisa de corrente para que dissipe corrente logo podemos encontrar a seguinte relação:
 
@@ -103,9 +103,19 @@ $\lim_{Rs \to \infty} Iz(Rs) = 0$
 Para os valores escolhidos e tomando $\epsilon$ como 0.0025 temos:
 
 $\lim_{Rs \to \infty} \frac{10}{Rs} = 0 => \frac{10}{\epsilon} = \delta$
+
 $\delta = 4000$
 
 Temos que para essa aproximação o valor maximo da resistência em série é 4000 $\Omega$
+
+## Transistor e potenciometro
+
+Esta parte do circuito é uma substituição do LM317 por ser mais simples de usar.
+
+O potenciometro funciona como regulador de maximo e minimo da tensão que chegara até carga selecionada, o escolhido foi um de 10K linear com uma resistência de 3.2K.
+
+O transistor NPN atua no circuito como um aplificador que isola a carga do circuito, fazendo que uma mudança na carga não altere o resto do circuito. É notavel que é necessario conectar um resistor de 100 Ohms de no mínimo 2W com o coletor do transistor para dividir a tensão que o transistor dissipa, caso contrario ele ira queimar. *No meu circuito escolhi um 120 Ohms e 5W pois era o mais próximo do valor sendo vendido*.
+
 ## Custo dos componentes
 
 | Componente               | Preço   |
