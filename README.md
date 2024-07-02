@@ -60,10 +60,52 @@ $C = \frac{100 \cdot 10^{-3}}{2 \cdot 60 \cdot 2} = 416uF$
 
 Como esse capacitor não é comercialmente vendido eu optei por um maior de 470uF para calcular o ripple que esse novo capacitor ira gerar temos a seguinte formula:
 
-$Vripple = \frac{Icarga}{2 \cdot ƒ \cdot 470 \cdot 10^{-6}} \approx 1.77$
+$Vripple = \frac{Icarga}{2 \cdot ƒ \cdot 470 \cdot 10^{-6}} \approx 1.77V$
 
-A razão pela qual eu escolhi uma capcitância pequena, que leva a um ripple maior, é que o custo de um capacito maior é significamente superior ao de um menor que ja atenderia as especificções da fonte.
+A razão pela qual eu escolhi uma capcitância pequena, que leva a um ripple maior, é que o custo de um capacitor maior é significamente superior ao de um menor que ja atenderia as especificações da fonte.
 
+## Diodo Zener
+
+O diodo zener é o componente responsavel por limitar a tensão que chega aos terminais da fonte, funcionando também como um aparato de segurança para ela.
+
+Ele funciona da seguinte forma, quando a tensão esta indo do anodo cátodo ele funciona como um diodo comum permitindo a passagem de corrente e dissipando cerca de 0.7V da tensão.
+
+Agora, quando ele esta conectado do cátodo para o anodo, sua funcionalidade muda para que exista tensão de corte do zener ($Vz$). Para qualquer valor de tensão menor que $Vz$ o zener funcionara como curto porém para tensões maiores que $Vz$ o diodo entrara na região de corte.
+
+Na região de corte temos que o zener tera uma voltagem negativa praticamente constante de $Vz$ que limitara a tensão a este valor.
+
+Quando no estado de corte o zener utilizara a corrente maxima para dissipar $Vz$ da seguinte forma:
+
+$\frac{Pz}{Vz} = Imax$
+
+Em que $Pz$ é a potência do zener.
+
+Um zener ideal poderia ter por ele uma corrente infinita. Um zener real dissipando mais que sua potência ira queimar por isso é necessario que seja inserindo um resistor em serie ($Rs$) ao zener para limitar a corrente que passa por ele, obtendo a seguinte relação:
+
+$Rmin = \frac{Vs - Vz}{Imax}$ 
+
+Em que $Vs$ é a voltagem provida pela fonte
+
+No meu circuito eu escolhi um diodo zener de 13V e 0.5W (pois era o que tinha na loja) obtendo os seguintes calculos:
+
+$Imax = \frac{0.5}{13} \approx 38.4mA$
+
+Mesmo no circuito tendo um ripple de $\approx 1.77V$ ainda é seguro utilizar o $Vs maximo$ para o minimo pois sera o suficiente também para o $Vs minimo$
+
+$Rmin = \frac{23 - 13}{38.4 \cdot 10^{-3} \approx 260\Omega}$
+
+Para descobrir o valor maximo da resistencia em série podemos usar do fato que o diodo zenner precisa de corrente para que dissipe corrente logo podemos encontrar a seguinte relação:
+
+$Rs = \frac{Vs - Vz}{Iz} => Iz = \frac{Vs-Vz}{Rs} => Iz(Rs) = \frac{Vs-Vz}{Rs} $
+
+$\lim_{Rs \to \infty} Iz(Rs) = 0$
+
+Para os valores escolhidos e tomando $\epsilon$ como 0.0025 temos:
+
+$\lim_{Rs \to \infty} \frac{10}{Rs} = 0 => \frac{10}{\epsilon} = \delta$
+$\delta = 4000$
+
+Temos que para essa aproximação o valor maximo da resistência em série é 4000 $\Omega$
 ## Custo dos componentes
 
 | Componente               | Preço   |
