@@ -116,7 +116,7 @@ $\delta = 3772$
 
 Temos que para essa aproximação o valor maximo da resistência em série é 3772 $\Omega$
 
-Utilizar uma resistencia proxima da máxmia é extremamente útil considerando que o zener ira dissipar um quantidade menor de tensão entretanto, no meu projeto, usando resistências maiores como a calculada estava reduzindo a tensão maxima do circuito então eu tive que colocar uma resistência extremamente próxima da minima, além disso, devido a uma certa dissipação pela protoboard usar 255 Ohms como resistência do zener ainda não queima ele.
+Utilizar uma resistencia proxima da máxmia é extremamente útil considerando que o zener ira dissipar um quantidade menor de tensão entretanto, no meu projeto, usando resistências maiores como a calculada estava reduzindo a tensão maxima do circuito então eu tive que colocar uma resistência extremamente próxima da minima, além disso, devido a uma certa dissipação pela protoboard e o fato da tensão não ser sempre a maxima como fiz nos meus calculos usar 255 Ohms como resistência do zener ainda não queima ele.
 
 ## Transistor e potenciometro
 
