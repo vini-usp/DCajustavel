@@ -171,6 +171,10 @@ Imagens do circuito com uma resistencia de 120Ohms como teste:
 
 <img src="./imgs/PCBnoEAGLE.jpg">
 
+## Link do vídeo explicando o projeto
+
+https://youtu.be/_1yLOddmoC4
+
 ## Feito por:
 
 Vinícius Souza Freitas - 15491959
