@@ -124,7 +124,7 @@ Esta parte do circuito é uma substituição do LM317 por ser mais simples de us
 
 O potenciometro funciona como regulador de maximo e minimo da tensão que chegara até carga selecionada, o escolhido foi um de 10K linear com uma resistência de 3.2K calculada com base em testes.
 
-O transistor NPN atua no circuito como um aplificador que isola a carga do circuito, fazendo que uma mudança na carga não altere o resto do circuito. É notavel que é necessario conectar um resistor de 100 Ohms de no mínimo 2W com o coletor do transistor para dividir a tensão que o transistor dissipa, caso contrario ele ira queimar. *No meu circuito escolhi um 120 Ohms e 5W pois era o mais próximo do valor sendo vendido*.
+O transistor NPN é um componente passivo que isola a carga do circuito, fazendo que uma mudança na carga não altere o resto do circuito. É notavel que é necessario conectar um resistor de 100 Ohms de no mínimo 2W com o coletor do transistor para dividir a tensão que o transistor dissipa, caso contrario ele ira queimar. *No meu circuito escolhi um 120 Ohms e 5W pois era o mais próximo do valor sendo vendido*.
 
 ## Custo dos componentes
 
